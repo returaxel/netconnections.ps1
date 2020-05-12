@@ -11,7 +11,7 @@ param (
 
 # Abused IP DB api key REQUIRED FOR ABUSEDIPDB LOOKUP TO WORK
 # Create a free account at https://www.abuseipdb.com/ for 1000 requests a day
-$apiKey = "fe9cdfdd78473243a08f365d4d88069abf31c1d156666a70ad147b082eea2d5b056377ba42d3178f"
+$apiKey = ""
 $ipAddress = (Get-NetIPAddress -InterfaceAlias $interfaceAlias -AddressFamily IPv4).ipaddress
 
 class CSVRows {
