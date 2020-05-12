@@ -4,14 +4,14 @@ param (
     [string]
     $interfaceAlias = 'WiFi',
     # Resolve hostname of RemoteAddr?
-    [Parameter(Mandatory=$true)]
+    [Parameter(Mandatory=$false)]
     [bool]
     $useAbusedipdb
 )
 
 # Abused IP DB api key REQUIRED FOR ABUSEDIPDB LOOKUP TO WORK
 # Create a free account at https://www.abuseipdb.com/ for 1000 requests a day
-$apiKey = "ENTER API KEY HERE"
+$apiKey = "fe9cdfdd78473243a08f365d4d88069abf31c1d156666a70ad147b082eea2d5b056377ba42d3178f"
 $ipAddress = (Get-NetIPAddress -InterfaceAlias $interfaceAlias -AddressFamily IPv4).ipaddress
 
 class CSVRows {
@@ -79,7 +79,7 @@ $1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12 = $headers.Split(',')
     if ($lookup.$8) {
         $row.$8 =   $lookup.$8[0].ToString()
     } else {
-        $row.$8 =   'n/a'
+        $row.$8 =   ''
     }
     $row.$9 =   $lookup.$9
     $row.$10=   $lookup.$10
